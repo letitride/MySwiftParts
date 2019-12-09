@@ -1,0 +1,16 @@
+PODS:
+  - TTTAttributedLabel (2.0.0)
+
+DEPENDENCIES:
+  - TTTAttributedLabel
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - TTTAttributedLabel
+
+SPEC CHECKSUMS:
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+
+PODFILE CHECKSUM: 77196f3a42f5c9a348c42edb7ed1207f475e87ec
+
+COCOAPODS: 1.6.1
