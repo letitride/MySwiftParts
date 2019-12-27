@@ -23,7 +23,6 @@ class ViewController: UIViewController {
         webView.load(urlRequest)
         webView.navigationDelegate = self
         view.addSubview(webView)
-        
     }
 }
 
