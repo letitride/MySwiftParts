@@ -38,28 +38,27 @@ class ViewController: UIViewController {
     let view2 = MView(frame: CGRect(x: 200, y: 200, width: 100, height: 100))
     
     let line1 = UIBezierPath()
-
+    let shapeLayer = CAShapeLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view1.delegate = self
         view2.delegate = self
 
-        let shapeLayer = CAShapeLayer()
-        line1.move(to: view1.center)
-        line1.addLine(to: view2.center)
-        line1.stroke()
-        shapeLayer.strokeColor = UIColor.blue.cgColor
-        //shapeLayer.path = line1.cgPath
+        self.strokeLine()
         view.layer.addSublayer(shapeLayer)
         
-        line1.move(to: CGPoint(x: 200, y: 300))
-        line1.addLine(to: CGPoint(x: 300, y: 400))
-        line1.stroke()
-        shapeLayer.path = line1.cgPath
-
         self.view.addSubview(view1)
         self.view.addSubview(view2)
 
+    }
+    
+    private func strokeLine(){
+        self.line1.move(to: view1.center)
+        self.line1.addLine(to: view2.center)
+        self.line1.stroke()
+        self.shapeLayer.strokeColor = UIColor.blue.cgColor
+        self.shapeLayer.path = self.line1.cgPath
     }
     
 }
@@ -70,7 +69,10 @@ extension ViewController:MViewDelegate{
         guard let touch = touches.first, let view = touch.view else { return }
         let location = touch.location(in: self.view)
         view.center = location
-    }
+        
+        self.line1.removeAllPoints()
+        self.strokeLine()
 
+    }
 }
 
